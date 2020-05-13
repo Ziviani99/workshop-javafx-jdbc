@@ -16,4 +16,13 @@ public class DepartmentService {
 		return dao.findAll();
 	}
 	
+	public void saveOrUpdate(Department obj) {
+		//caso o departamento ainda não exista no banco ele irá inserir, caso contrário irá atualizar
+		if(obj.getId() == null) {
+			dao.insert(obj);
+		}
+		else {
+			dao.update(obj);
+		}
+	}
 }
